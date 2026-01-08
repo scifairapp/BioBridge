@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioBridge - Diet & Gut Microbiome</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="title">BioBridge</h1>
+            <p class="subtitle">A bridge between the Gut and Brain</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="diet">Diet</button>
+            <button class="tab-button" data-tab="microbiome">Gut Microbiome</button>
+            <button class="tab-button" data-tab="correlation">Correlation</button>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Diet Tab Content -->
+            <div class="tab-content active" id="diet-tab">
+                <div class="plate-container">
+                    <svg class="myplate" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Main Plate Circle -->
+                        <circle cx="200" cy="200" r="180" fill="none" stroke="#333" stroke-width="3"/>
+                        
+                        <!-- Vegetables Section (top-left, 25%) -->
+                        <path id="vegetables-section"
+                              d="M 200 200 L 200 20 A 180 180 0 0 1 380 200 Z"
+                              fill="#4ca64c"
+                              stroke="#333"
+                              stroke-width="2"
+                              class="plate-section"
+                              data-category="vegetables"/>
+                        
+                        <!-- Fruits Section (top-right, 25%) -->
+                        <path id="fruits-section"
+                              d="M 200 200 L 380 200 A 180 180 0 0 1 200 380 Z"
+                              fill="#e74c3c"
+                              stroke="#333"
+                              stroke-width="2"
+                              class="plate-section"
+                              data-category="fruits"/>
+                        
+                        <!-- Grains Section (bottom-right, 25%) -->
+                        <path id="grains-section"
+                              d="M 200 200 L 200 380 A 180 180 0 0 1 20 200 Z"
+                              fill="#f39c12"
+                              stroke="#333"
+                              stroke-width="2"
+                              class="plate-section"
+                              data-category="grains"/>
+                        
+                        <!-- Protein Section (bottom-left, 25%) -->
+                        <path id="protein-section"
+                              d="M 200 200 L 20 200 A 180 180 0 0 1 200 20 Z"
+                              fill="#8e44ad"
+                              stroke="#333"
+                              stroke-width="2"
+                              class="plate-section"
+                              data-category="protein"/>
+                    </svg>
+                    
+                    <!-- Drink Circle -->
+                    <div class="drink-circle" data-category="drink">
+                        <div class="drink-circle-inner">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Food Items on Plate Display -->
+                <div class="plate-items-display">
+                    <h3>Your Plate:</h3>
+                    <div id="plate-items-list">Click or drag foods to your plate!</div>
+                </div>
+            </div>
+
+            <!-- Gut Microbiome Tab Content -->
+            <div class="tab-content" id="microbiome-tab">
+                <div class="microbiome-content">
+                    <h2>Your Plate Selection</h2>
+                    <p class="description">Here are the foods you've selected for your plate.</p>
+                    
+                    <div class="plate-container">
+                        <svg class="myplate" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Main Plate Circle -->
+                            <circle cx="200" cy="200" r="180" fill="none" stroke="#333" stroke-width="3"/>
+                            
+                            <!-- Vegetables Section (top-right, 25%) -->
+                            <path id="vegetables-section-microbiome"
+                                  d="M 200 200 L 200 20 A 180 180 0 0 1 380 200 Z"
+                                  fill="#4ca64c"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-microbiome"/>
+                            
+                            <!-- Fruits Section (bottom-right, 25%) -->
+                            <path id="fruits-section-microbiome"
+                                  d="M 200 200 L 380 200 A 180 180 0 0 1 200 380 Z"
+                                  fill="#e74c3c"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-microbiome"/>
+                            
+                            <!-- Grains Section (bottom-left, 25%) -->
+                            <path id="grains-section-microbiome"
+                                  d="M 200 200 L 200 380 A 180 180 0 0 1 20 200 Z"
+                                  fill="#f39c12"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-microbiome"/>
+                            
+                            <!-- Protein Section (top-left, 25%) -->
+                            <path id="protein-section-microbiome"
+                                  d="M 200 200 L 20 200 A 180 180 0 0 1 200 20 Z"
+                                  fill="#8e44ad"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-microbiome"/>
+                        </svg>
+                        
+                        <!-- Drink Circle -->
+                        <div class="drink-circle-microbiome">
+                            <div class="drink-circle-inner">
+                            </div>
+                        </div>
+                        
+                        <!-- Microbiome Info Textboxes -->
+                        <div id="microbiome-info-container">
+                            <!-- Textboxes will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Correlation Tab Content -->
+            <div class="tab-content" id="correlation-tab">
+                <div class="correlation-content">
+                    <h2>Your Plate Selection</h2>
+                    <p class="description">Here are the foods you've selected for your plate.</p>
+                    
+                    <div class="plate-container">
+                        <svg class="myplate" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Main Plate Circle -->
+                            <circle cx="200" cy="200" r="180" fill="none" stroke="#333" stroke-width="3"/>
+                            
+                            <!-- Vegetables Section (top-right, 25%) -->
+                            <path id="vegetables-section-correlation"
+                                  d="M 200 200 L 200 20 A 180 180 0 0 1 380 200 Z"
+                                  fill="#4ca64c"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-correlation"/>
+                            
+                            <!-- Fruits Section (bottom-right, 25%) -->
+                            <path id="fruits-section-correlation"
+                                  d="M 200 200 L 380 200 A 180 180 0 0 1 200 380 Z"
+                                  fill="#e74c3c"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-correlation"/>
+                            
+                            <!-- Grains Section (bottom-left, 25%) -->
+                            <path id="grains-section-correlation"
+                                  d="M 200 200 L 200 380 A 180 180 0 0 1 20 200 Z"
+                                  fill="#f39c12"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-correlation"/>
+                            
+                            <!-- Protein Section (top-left, 25%) -->
+                            <path id="protein-section-correlation"
+                                  d="M 200 200 L 20 200 A 180 180 0 0 1 200 20 Z"
+                                  fill="#8e44ad"
+                                  stroke="#333"
+                                  stroke-width="2"
+                                  class="plate-section-correlation"/>
+                        </svg>
+                        
+                        <!-- Drink Circle -->
+                        <div class="drink-circle-correlation">
+                            <div class="drink-circle-inner">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Correlation Info Textboxes -->
+                    <div id="correlation-info-container" class="correlation-info-container">
+                        <!-- Textboxes will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Food Items Scroll Bar -->
+        <footer class="food-scroll-bar">
+            <h3>Drag Foods to Your Plate:</h3>
+            <div class="food-items-container">
+                <div class="food-item" draggable="true" data-food="oatmeal" data-category="grains">
+                    <div class="food-icon">🥣</div>
+                    <span>Oatmeal</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="banana" data-category="fruits">
+                    <div class="food-icon">🍌</div>
+                    <span>Banana</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="apple" data-category="fruits">
+                    <div class="food-icon">🍎</div>
+                    <span>Apple</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="orange" data-category="fruits">
+                    <div class="food-icon">🍊</div>
+                    <span>Orange</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="pineapple" data-category="fruits">
+                    <div class="food-icon">🍍</div>
+                    <span>Pineapple</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="strawberries" data-category="fruits">
+                    <div class="food-icon">🍓</div>
+                    <span>Strawberries</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="grapes" data-category="fruits">
+                    <div class="food-icon">🍇</div>
+                    <span>Grapes</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="blueberries" data-category="fruits">
+                    <div class="food-icon">🫐</div>
+                    <span>Blueberries</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="candy" data-category="fruits">
+                    <div class="food-icon">🍬</div>
+                    <span>Candy</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="chocolate" data-category="fruits">
+                    <div class="food-icon">🍫</div>
+                    <span>Chocolate</span>
+    
+                </div>
+                <div class="food-item" draggable="true" data-food="burger" data-category="protein">
+                    <div class="food-icon">🍔</div>
+                    <span>Burger</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="fries" data-category="vegetables">
+                    <div class="food-icon">🍟</div>
+                    <span>Fries</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="chicken" data-category="protein">
+                    <div class="food-icon">🍗</div>
+                    <span>Chicken</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="chips" data-category="grains">
+                    <div class="food-icon">🥔</div>
+                    <span>Chips</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="lemonade" data-category="drink">
+                    <div class="food-icon">🥤</div>
+                    <span>Raspberry Lemonade</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="yogurt" data-category="protein">
+                    <div class="food-icon">🥛</div>
+                    <span>Yogurt</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="pizza" data-category="grains">
+                    <div class="food-icon">🍕</div>
+                    <span>Pizza</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="sandwich" data-category="grains">
+                    <div class="food-icon">🥪</div>
+                    <span>Sandwich</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="spaghetti" data-category="grains">
+                    <div class="food-icon">🍝</div>
+                    <span>Spaghetti</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="salad" data-category="vegetables">
+                    <div class="food-icon">🥗</div>
+                    <span>Salad</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="cake" data-category="fruits">
+                    <div class="food-icon">🍰</div>
+                    <span>Cake</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="ice cream" data-category="fruits">
+                    <div class="food-icon">🍦</div>
+                    <span>Ice Cream</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="iced tea" data-category="drink">
+                    <div class="food-icon">🧊</div>
+                    <span>Iced Tea</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="coke" data-category="drink">
+                    <div class="food-icon">🥤</div>
+                    <span>Coke</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="sprite" data-category="drink">
+                    <div class="food-icon">🥤</div>
+                    <span>Sprite</span>
+                </div>
+                <div class="food-item" draggable="true" data-food="orange juice" data-category="drink">
+                    <div class="food-icon">🍊</div>
+                    <span>Orange Juice</span>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <p><strong>Educational Disclaimer:</strong> This interactive platform is designed exclusively for educational and research purposes. The information presented herein does not constitute medical advice, diagnosis, or treatment recommendations. All data and correlations displayed are based on preliminary research findings and should not be used as a substitute for professional medical consultation. Individuals with autism spectrum disorders or related health concerns should consult qualified healthcare professionals for personalized medical guidance and treatment plans.</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
