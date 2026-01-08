@@ -1306,14 +1306,14 @@ style.textContent = `
     
     /* Drink (right side of plate) - textbox further to the right */
     .microbiome-textbox.drink {
-        top: 165px;
-        left: 600px;
+        top: 50px;
+        left: 800px;
     }
     
     .microbiome-arrow.drink {
-        top: 200px;
-        left: 570px;
-        width: 30px;
+        top: 100px;
+        left: 750px;
+        width: 50px;
         height: 2px;
     }
     
@@ -1326,18 +1326,17 @@ style.textContent = `
     }
     
     /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .microbiome-textbox {
-            max-width: 220px;
-            
+            max-width: 200px;
+            min-width: 180px;
             font-size: 0.7rem;
-            padding: 10px;
+            padding: 12px;
         }
         
         .microbiome-textbox.vegetables,
         .microbiome-textbox.fruits {
-            left: 300px;
-            top: 10px;
+            left: 350px;
         }
         
         .microbiome-textbox.grains,
@@ -1346,26 +1345,162 @@ style.textContent = `
         }
         
         .microbiome-textbox.drink {
-            left: 320px;
-            top: 450px;
+            left: 600px;
+            top: 50px;
         }
         
         .microbiome-arrow.vegetables,
         .microbiome-arrow.fruits {
-            left: 270px;
+            left: 320px;
             width: 30px;
         }
         
         .microbiome-arrow.grains,
         .microbiome-arrow.protein {
-            left: 230px;
+            left: 210px;
             width: 30px;
         }
         
         .microbiome-arrow.drink {
-            left: 290px;
-            top: 480px;
+            left: 390px;
+            top: 200px;
             width: 30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .microbiome-textbox {
+            max-width: 180px;
+            min-width: 160px;
+            font-size: 0.65rem;
+            padding: 10px;
+        }
+        
+        .microbiome-textbox.vegetables {
+            top: 10px;
+            left: 300px;
+        }
+        
+        .microbiome-textbox.fruits {
+            top: 350px;
+            left: 300px;
+        }
+        
+        .microbiome-textbox.grains {
+            top: 350px;
+            left: 10px;
+        }
+        
+        .microbiome-textbox.protein {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .microbiome-textbox.drink {
+            top: 450px;
+            left: 50px;
+        }
+        
+        .microbiome-arrow.vegetables {
+            top: 70px;
+            left: 270px;
+            width: 30px;
+        }
+        
+        .microbiome-arrow.fruits {
+            top: 410px;
+            left: 270px;
+            width: 30px;
+        }
+        
+        .microbiome-arrow.grains {
+            top: 410px;
+            left: 190px;
+            width: 30px;
+        }
+        
+        .microbiome-arrow.protein {
+            top: 70px;
+            left: 190px;
+            width: 30px;
+        }
+        
+        .microbiome-arrow.drink {
+            top: 220px;
+            left: 290px;
+            width: 30px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .microbiome-textbox {
+            max-width: 140px;
+            min-width: 120px;
+            font-size: 0.6rem;
+            padding: 8px;
+        }
+        
+        .microbiome-textbox h4 {
+            font-size: 0.9rem;
+        }
+        
+        .microbiome-textbox p {
+            font-size: 0.65rem;
+        }
+        
+        .microbiome-textbox.vegetables {
+            top: 10px;
+            left: 220px;
+        }
+        
+        .microbiome-textbox.fruits {
+            top: 400px;
+            left: 220px;
+        }
+        
+        .microbiome-textbox.grains {
+            top: 400px;
+            left: 5px;
+        }
+        
+        .microbiome-textbox.protein {
+            top: 10px;
+            left: 5px;
+        }
+        
+        .microbiome-textbox.drink {
+            top: 500px;
+            left: 10px;
+        }
+        
+        .microbiome-arrow.vegetables {
+            top: 60px;
+            left: 200px;
+            width: 20px;
+        }
+        
+        .microbiome-arrow.fruits {
+            top: 450px;
+            left: 200px;
+            width: 20px;
+        }
+        
+        .microbiome-arrow.grains {
+            top: 450px;
+            left: 145px;
+            width: 20px;
+        }
+        
+        .microbiome-arrow.protein {
+            top: 60px;
+            left: 145px;
+            width: 20px;
+        }
+        
+        .microbiome-arrow.drink {
+            top: 240px;
+            left: 200px;
+            width: 20px;
         }
     }
     
@@ -1568,14 +1703,14 @@ style.textContent = `
     }
     
     .correlation-textbox.drink {
-        top: 165px;
-        left: 600px;
+        top: 50px;
+        left: 800px;
     }
     
     .correlation-arrow.drink {
-        top: 140px;
-        left: 480px;
-        width: 40px;
+        top: 100px;
+        left: 750px;
+        width: 50px;
         height: 2px;
     }
     
@@ -1588,22 +1723,22 @@ style.textContent = `
     }
     
     /* Responsive adjustments for correlation tab */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .correlation-info-container {
-            height: 700px;
+            height: 600px;
             overflow-x: auto;
         }
         
         .correlation-textbox {
-            max-width: 240px;
-            min-width: 220px;
+            max-width: 200px;
+            min-width: 180px;
             font-size: 0.7rem;
-            padding: 10px;
+            padding: 12px;
         }
         
         .correlation-textbox.vegetables,
         .correlation-textbox.fruits {
-            left: 320px;
+            left: 350px;
         }
         
         .correlation-textbox.grains,
@@ -1612,9 +1747,174 @@ style.textContent = `
         }
         
         .correlation-textbox.drink {
-            left: 350px;
-            top: 450px;
+            left: 600px;
+            top: 50px;
         }
+        
+        .correlation-arrow.vegetables,
+        .correlation-arrow.fruits {
+            left: 320px;
+            width: 30px;
+        }
+        
+        .correlation-arrow.grains,
+        .correlation-arrow.protein {
+            left: 210px;
+            width: 30px;
+        }
+        
+        .correlation-arrow.drink {
+            left: 390px;
+            top: 200px;
+            width: 30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .correlation-info-container {
+            height: 700px;
+            overflow-x: auto;
+        }
+        
+        .correlation-textbox {
+            max-width: 180px;
+            min-width: 160px;
+            font-size: 0.65rem;
+            padding: 10px;
+        }
+        
+        .correlation-textbox.vegetables {
+            top: 10px;
+            left: 300px;
+        }
+        
+        .correlation-textbox.fruits {
+            top: 350px;
+            left: 300px;
+        }
+        
+        .correlation-textbox.grains {
+            top: 350px;
+            left: 10px;
+        }
+        
+        .correlation-textbox.protein {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .correlation-textbox.drink {
+            top: 450px;
+            left: 50px;
+        }
+        
+        .correlation-arrow.vegetables {
+            top: 70px;
+            left: 270px;
+            width: 30px;
+        }
+        
+        .correlation-arrow.fruits {
+            top: 410px;
+            left: 270px;
+            width: 30px;
+        }
+        
+        .correlation-arrow.grains {
+            top: 410px;
+            left: 190px;
+            width: 30px;
+        }
+        
+        .correlation-arrow.protein {
+            top: 70px;
+            left: 190px;
+            width: 30px;
+        }
+        
+        .correlation-arrow.drink {
+            top: 220px;
+            left: 290px;
+            width: 30px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .correlation-info-container {
+            height: 800px;
+            overflow-x: auto;
+        }
+        
+        .correlation-textbox {
+            max-width: 140px;
+            min-width: 120px;
+            font-size: 0.6rem;
+            padding: 8px;
+        }
+        
+        .correlation-textbox h4 {
+            font-size: 0.9rem;
+        }
+        
+        .correlation-textbox p {
+            font-size: 0.65rem;
+        }
+        
+        .correlation-textbox.vegetables {
+            top: 10px;
+            left: 220px;
+        }
+        
+        .correlation-textbox.fruits {
+            top: 400px;
+            left: 220px;
+        }
+        
+        .correlation-textbox.grains {
+            top: 400px;
+            left: 5px;
+        }
+        
+        .correlation-textbox.protein {
+            top: 10px;
+            left: 5px;
+        }
+        
+        .correlation-textbox.drink {
+            top: 500px;
+            left: 10px;
+        }
+        
+        .correlation-arrow.vegetables {
+            top: 60px;
+            left: 200px;
+            width: 20px;
+        }
+        
+        .correlation-arrow.fruits {
+            top: 450px;
+            left: 200px;
+            width: 20px;
+        }
+        
+        .correlation-arrow.grains {
+            top: 450px;
+            left: 145px;
+            width: 20px;
+        }
+        
+        .correlation-arrow.protein {
+            top: 60px;
+            left: 145px;
+            width: 20px;
+        }
+        
+        .correlation-arrow.drink {
+            top: 240px;
+            left: 200px;
+            width: 20px;
+        }
+    }
         
         .correlation-arrow.vegetables,
         .correlation-arrow.fruits {
